@@ -16,7 +16,8 @@ export const EventRepository = AppDataSource.getRepository(Event).extend({
                 eventDate: true
             },
             relations:{
-                status: true
+                status: true,
+                organizerId: true
             }
         });
     },
