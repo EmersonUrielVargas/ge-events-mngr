@@ -13,6 +13,10 @@ const reservationsController = ()=>{
         await reservationService.getAll(req, res, next);
     });
 
+    router.get('/:userId/:eventId', async (req, res, next)=>{
+        await reservationService.getOne(req, res, next);
+    });
+
     router.get('/user/:id', async (req, res, next)=>{
         await reservationService.getByUser(req, res, next);
     });

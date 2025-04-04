@@ -8,6 +8,18 @@ export const ReservationRepository = AppDataSource.getRepository(Reservation).ex
     async getAll(): Promise<Reservation[]>{
         return this.find();
     },
+    async findOneReservation(userId: number, eventId: number){
+        return this.findOne({
+            where: {
+                eventId: eventId,
+                userId: userId
+            },
+            relations:{
+                user: true,
+                event: true
+            }
+        })
+    },
     async getReservationsByEvent(eventId: number): Promise<Reservation[]>{
         return this.find({
             where: {

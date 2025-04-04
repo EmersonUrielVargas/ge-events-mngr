@@ -23,6 +23,24 @@ export class ReservationService {
             return next(error);
         }
     }
+    
+    async getOne(request:Request, response: Response, next: NextFunction){
+        try{
+            const { userId, eventId } = request.params;
+            const reservation = await this.reservationRepository.findOneReservation(Number(userId), Number(eventId));
+            if (reservation) {
+                return response.status(constants.HTTP_STATUS_OK).send(reservation)
+            }else{
+                const errorRs = {
+                    statusCode: constants.HTTP_STATUS_NO_CONTENT,
+                    description: 'There are no reservations' 
+                }
+                throw new Error(JSON.stringify(errorRs));
+            }
+        }catch(error){
+            return next(error);
+        }
+    }
 
     async getByUser(request:Request, response: Response, next: NextFunction){
         try{

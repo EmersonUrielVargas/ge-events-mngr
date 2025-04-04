@@ -1,6 +1,5 @@
 import { SECRET_KEY } from "@config";
 import { Constants } from "@utilities/constants";
-import { error } from "console";
 import { Request, NextFunction, Response } from "express";
 import { constants } from "http2";
 import jwt from "jsonwebtoken";
@@ -21,8 +20,8 @@ export const tokenValidator = (req:Request, res: Response, next: NextFunction)=>
         }else{
             throw new Error(JSON.stringify(authError));
         }
-    } catch {
-        throw error(authError);
+        next();
+    } catch(error) {
+        return next(new Error(JSON.stringify((authError))));
     }
-    next();
 }
