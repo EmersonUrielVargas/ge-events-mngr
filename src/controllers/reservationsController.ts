@@ -13,18 +13,19 @@ const reservationsController = ()=>{
         await reservationService.getAll(req, res, next);
     });
 
-    router.get('/:userId/:eventId', async (req, res, next)=>{
-        await reservationService.getOne(req, res, next);
-    });
-
+    
     router.get('/user/:id', async (req, res, next)=>{
         await reservationService.getByUser(req, res, next);
     });
-
+    
     router.get('/event/:id', async (req, res, next)=>{
         await reservationService.getByEvent(req, res, next);
     });
-
+    
+    router.get('/:userId/:eventId', async (req, res, next)=>{
+        await reservationService.getOne(req, res, next);
+    });
+    
     router.post('/register', validateDto(CreateReservationDto), async (req, res, next)=>{
         await reservationService.registerReservation(req, res, next);
     });
