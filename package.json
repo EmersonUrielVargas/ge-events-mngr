@@ -1,0 +1,59 @@
+{
+  "name": "ge-users-mngr",
+  "version": "1.0.0",
+  "description": "Repositorio para administrar usuarios de aplicacion gestor de eventos",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "start": "npm run build && node -r tsconfig-paths/register build/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run build && ts-node-dev -r tsconfig-paths/register build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmersonUrielVargas/ge-users-mngr.git"
+  },
+  "keywords": [
+    "nodeJs",
+    "Express",
+    "Mysql"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmersonUrielVargas/ge-users-mngr/issues"
+  },
+  "homepage": "https://github.com/EmersonUrielVargas/ge-users-mngr#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "db-local": "^3.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.14.1",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.22"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.14.0",
+    "standard": "^17.1.2",
+    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.13",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
